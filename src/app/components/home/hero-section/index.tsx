@@ -15,7 +15,7 @@ const index = () => {
                             </div>
                             <h1>UI/UX Designer</h1>
                         </div>
-                        <p className="text-secondary font-normal max-w-md xl:max-w-xl">Lorem Ipsum is simply dummy text of the printing and typesetting industry. variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
+                        <p className="text-secondary font-normal max-w-md xl:max-w-xl">Estamos en resideño de esta web</p>
                     </div>
                     <Image src={"/images/home/banner/banner-img.png"} alt="banner-img" width={685} height={650} className="block lg:hidden" />
                 </div>
