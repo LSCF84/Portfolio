@@ -11,7 +11,7 @@ const contactBar = {
     },
      {
       type: "website",
-      label: "lscf84.github.io",
+      label: "portfolio 1",
       icon: "/images/icon/web-icon.svg",
       link: "www.lscf84.github.io"
     },
@@ -19,13 +19,13 @@ const contactBar = {
       type: "website",
       label: "portfolio 2",
       icon: "/images/icon/web-icon.svg",
-      link: "www.lscf84.github.io"
+      link: "https://jrdev-chi.vercel.app/"
     },
  {
       type: "website",
       label: "portfolio 3",
       icon: "/images/icon/web-icon.svg",
-      link: "www.lscf84.github.io"
+      link: "https://portfolio-web-steel-sigma.vercel.app/"
     }
   ],
   socialItems: [
