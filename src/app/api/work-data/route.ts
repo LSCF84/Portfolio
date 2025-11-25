@@ -2,40 +2,40 @@ import { NextResponse } from "next/server";
 
 const workData = [
     {
-        image: "/images/work/work-img-1.jpg",
-        title: "Mug Sticker Designing",
-        client: "John Honnai",
-        slug: "mug-sticker-designing"
+        image: "/images/work/CSM.png",
+        title: "Check Software Minimum-CSM",
+        client: "Proyecto Personal",
+        slug: "https://github.com/LSCF84/Check-Software-Minimum-CSM"
     },
     {
-        image: "/images/work/work-img-2.jpg",
-        title: "Mobile App Design",
-        client: "John Honnai",
-        slug: "mobile-app-design"
+        image: "/images/work/VR-GUI.png",
+        title: "Renamer GUI VR-GUI",
+        client: "Proyecto Personal",
+        slug: "https://github.com/LSCF84/Version-Renamer-GUI_VR-GUI"
     },
     {
-        image: "/images/work/work-img-3.jpg",
-        title: "Fashion Website Template",
-        client: "John Honnai",
-        slug: "fashion-website-template"
+        image: "/images/work/WEDA.png",
+        title: "Windows Error Diagnostic with AI-WEDA",
+        client: "Proyecto Personal",
+        slug: "https://github.com/LSCF84/Windows-Error-Diagnostic-with-AI_WEDA"
     },
     {
-        image: "/images/work/work-img-4.jpg",
-        title: "Book Cover Design",
-        client: "John Honnai",
-        slug: "book-cover-design"
+        image: "/images/work/PYE.png",
+        title: "py-to-exe",
+        client: "Proyecto Personal",
+        slug: "https://github.com/LSCF84/py-to-exe"
     },
     {
-        image: "/images/work/work-img-5.jpg",
-        title: "Mobile App Design",
-        client: "John Honnai",
-        slug: "mobile-app-design"
+        image: "/images/work/RS.png",
+        title: "PDF Renamer Security PDF-RS",
+        client: "Proyecto Personal",
+        slug: "https://github.com/LSCF84/PDF-Renamer-Security-PDF-RS"
     },
     {
-        image: "/images/work/work-img-6.jpg",
-        title: "Mug Sticker Designing",
-        client: "John Honnai",
-        slug: "mug-sticker-designing"
+        image: "/images/work/RSS.png",
+        title: "PDF Renamer Security Suite PDF-RSS",
+        client: "Proyecto Personal",
+        slug: "https://github.com/LSCF84/PDF-Renamer-Security-Suite-PDF-RSS"
     }
 ];
 
