@@ -27,7 +27,7 @@ const LatestWork = () => {
                 <div className="container">
                     <div className="py-16 xl:py-32 ">
                         <div className="flex items-center justify-between gap-2 border-b border-black pb-7 mb-9 md:mb-16">
-                            <h2>Latest Works</h2>
+                            <h2>Proyectos</h2>
                             <p className="text-xl text-orange-500">( 04 )</p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 xl:gap-y-12">
