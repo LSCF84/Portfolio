@@ -63,7 +63,7 @@ const AboutMe = () => {
                                             width={30}
                                             height={30}
                                         />
-                                        <p className="text-base xl:text-xl text-black">Language</p>
+                                        <p className="text-base xl:text-xl text-black">Idiomas</p>
                                     </div>
                                     <div className="flex flex-wrap justify-center items-center gap-2.5">
                                         {["Spanish", "English", "Russian"].map((lang) => (
