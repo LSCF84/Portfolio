@@ -10,15 +10,10 @@ const contactBar = {
       link: "mailto:l.sergio.camacho.fernandez@gmail.com"
     },
 {
-
       type: "website",
-
       label: "lscf84.github.io",
-
       icon: "/images/icon/web-icon.svg",
-
       link: "www.lscf84.github.io"
-
     }
 };
   ],
