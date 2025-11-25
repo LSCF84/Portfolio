@@ -15,7 +15,11 @@ const index = () => {
                             </div>
                             <h1>Tecnico IT/Diseñador Jr.</h1>
                         </div>
-                        <p className="text-secondary font-normal max-w-md xl:max-w-xl">Estamos en re-diseño de esta web</p>
+                        <p className="text-secondary font-normal max-w-md xl:max-w-xl">Técnico IT con más de 15 años de experiencia y un futuro Desarrollador Multiplataforma.
+									Combino una sólida base en sistemas, redes y resolución de problemas (N3/N4) 
+									con mi formación actual en frontend y programación (Python, etc.). 
+									Estoy listo para aplicar mi pensamiento analítico y adaptabilidad en proyectos desafiantes, 
+									buscando soluciones tecnológicas eficientes.</p>
                     </div>
                     <Image src={"/images/home/banner/banner-img.png"} alt="banner-img" width={685} height={650} className="block lg:hidden" />
                 </div>
