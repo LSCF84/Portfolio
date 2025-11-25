@@ -14,13 +14,13 @@ const contactBar = {
       label: "lscf84.github.io",
       icon: "/images/icon/web-icon.svg",
       link: "www.lscf84.github.io"
-    }
+    },
      {
       type: "website",
       label: "portfolio 2",
       icon: "/images/icon/web-icon.svg",
       link: "www.lscf84.github.io"
-    }
+    },
  {
       type: "website",
       label: "portfolio 3",
