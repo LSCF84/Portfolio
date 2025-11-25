@@ -34,7 +34,7 @@ const AboutMe = () => {
 
                             <div className="w-full lg:max-w-2xl flex-1">
                                 <p>
-                                    Técnico IT y Desarrollador web junior apasionado.
+                                    Técnico IT y Desarrollador junior apasionado.
                                     Combino una sólida base técnica en administración 
                                     de sistemas y redes con conocimientos en desarrollo frontend.
                                     Experto en resolución de problemas, mi enfoque es construir 
