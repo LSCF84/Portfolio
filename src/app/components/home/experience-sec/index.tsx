@@ -86,7 +86,7 @@ const ExperienceSec = () => {
             <div className="py-16 md:py-32">
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between gap-2 border-b border-black pb-7 mb-9 md:mb-16">
-                        <h2>Experience</h2>
+                        <h2>Experiencia</h2>
                         <p className="text-xl text-primary">( 02 )</p>
                     </div>
 
