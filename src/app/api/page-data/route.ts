@@ -13,19 +13,19 @@ const contactBar = {
       type: "website",
       label: "portfolio 1",
       icon: "/images/icon/web-icon.svg",
-      link: "https://lscf84.github.io"
+      link: "https://lscf-central.vercel.app/"
     },
      {
       type: "website",
       label: "portfolio 2",
       icon: "/images/icon/web-icon.svg",
-      link: "https://jrdev-chi.vercel.app/"
+      link: "https://jrdev-lscf.vercel.app/"
     },
  {
       type: "website",
       label: "portfolio 3",
       icon: "/images/icon/web-icon.svg",
-      link: "https://portfolio-web-steel-sigma.vercel.app/"
+      link: "https://portfolio-websteel.vercel.app/"
     }
   ],
   socialItems: [
