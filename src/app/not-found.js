@@ -1,18 +1,19 @@
 // Este componente está diseñado para ser la página de error 404
 // en un proyecto Next.js (App Router, app/not-found.jsx).
 
-// NOTA: En el entorno de previsualización, usamos un tag <a> estándar en lugar de
-// el componente <Link> de Next.js, pero funcionará perfectamente en tu despliegue.
-
 const ACCENT_ORANGE = '#ff5722';
 const PRIMARY_TEXT = '#1a1a1a';
 const SECONDARY_TEXT = '#555555';
 
 export default function NotFound() {
   return (
-    // Estilo del cuerpo: fondo muy claro, centrado, tipografía estándar.
-    <div style={{ backgroundColor: '#f9f9f9' }} className="font-sans min-h-screen flex items-center justify-center p-4 antialiased">
-
+    // Se utiliza min-h-screen y flex para asegurar que el contenido
+    // de la 404 ocupe toda la pantalla y esté centrado verticalmente, 
+    // independientemente de cualquier layout padre que se intente inyectar.
+    <div 
+      className="font-sans min-h-screen flex flex-col items-center justify-center p-4 antialiased"
+      style={{ backgroundColor: '#f9f9f9' }} 
+    >
       {/* Contenedor Principal: Tarjeta blanca con sombra y bordes redondeados */}
       <div className="max-w-xl w-full text-center p-8 md:p-12 rounded-xl border border-gray-200 bg-white shadow-xl">
 
@@ -53,7 +54,7 @@ export default function NotFound() {
 
         {/* Botón de Retorno al Inicio */}
         <a 
-            href="/" // El enlace estándar funciona en Next.js si se mantiene la misma ruta base
+            href="/" // El enlace estándar funciona en Next.js
             className="inline-block px-8 py-3 text-lg font-semibold uppercase tracking-wider text-white border-2 rounded-lg transition-colors duration-300 shadow-md hover:opacity-90 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-opacity-50"
             style={{ backgroundColor: ACCENT_ORANGE, borderColor: ACCENT_ORANGE, boxShadow: `0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06)` }}
           >
