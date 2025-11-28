@@ -92,7 +92,7 @@ const CookiePolicyPage = () => {
         <section>
           <h2 className={`text-2xl font-bold mb-3 ${titleColor}`}>4. Contacto</h2>
           <p className={textColor}>
-            Si tiene alguna pregunta sobre esta Política de Cookies, puede contactarnos a través del correo electrónico: <a href="mailto:l.sergio.camacho.fernandez@gmail.com" className={primaryColor}>contacto@lscfdevhub.com</a>
+            Si tiene alguna pregunta sobre esta Política de Cookies, puede contactarnos a través del correo electrónico: <a href="mailto:l.sergio.camacho.fernandez@gmail.com" className={primaryColor}>l.sergio.camacho.fernandez@gmail.com</a>
           </p>
         </section>
 
