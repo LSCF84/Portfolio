@@ -1,176 +1,101 @@
-'use client';
-
-import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
-// Clave para guardar el consentimiento en localStorage
-const CONSENT_KEY = 'cookie_consent_lscf_main';
-
-const useCookieConsent = () => {
-    const [consent, setConsentState] = useState<{ analytics: boolean } | null>(null);
-    const [isBannerVisible, setIsBannerVisible] = useState(false);
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const [analyticsChecked, setAnalyticsChecked] = useState(true); 
-
-    useEffect(() => {
-        try {
-            // Este código se ejecuta solo en el navegador (lado cliente)
-            if (typeof window === 'undefined') return;
-
-            const consentString = localStorage.getItem(CONSENT_KEY);
-            if (consentString) {
-                const loadedConsent = JSON.parse(consentString);
-                setConsentState(loadedConsent);
-                setAnalyticsChecked(loadedConsent.analytics);
-            } else {
-                // Si no hay consentimiento, mostramos el banner después de un pequeño retraso
-                setTimeout(() => setIsBannerVisible(true), 500); 
-            }
-        } catch (e) {
-            console.error("Error al cargar el consentimiento de cookies:", e);
-            setTimeout(() => setIsBannerVisible(true), 500);
-        }
-    }, []);
-
-    const setConsent = useCallback((analytics: boolean) => {
-        const newConsent = { date: new Date().toISOString(), analytics };
-        localStorage.setItem(CONSENT_KEY, JSON.stringify(newConsent));
-        setConsentState(newConsent);
-        setIsBannerVisible(false);
-        setIsModalVisible(false);
-
-        // Lógica para cargar/bloquear scripts de terceros (Ej. Google Analytics)
-        if (analytics) {
-            console.log("Analytics permitido: Cargar script aquí.");
-        } else {
-            console.log("Analytics denegado: Asegúrate de bloquear scripts.");
-        }
-    }, []);
-
-    const acceptAll = () => setConsent(true);
-
-    const savePreferences = () => setConsent(analyticsChecked);
-
-    const showModal = () => {
-        setIsBannerVisible(false);
-        setIsModalVisible(true);
-    };
-
-    const hideModal = () => {
-        setIsModalVisible(false);
-        if (!consent) {
-            setIsBannerVisible(true);
-        }
-    };
-
-    return {
-        isBannerVisible,
-        isModalVisible,
-        analyticsChecked,
-        setAnalyticsChecked,
-        acceptAll,
-        showModal,
-        hideModal,
-        savePreferences,
-    };
+// --- METADATA ---
+export const metadata: Metadata = {
+  title: 'Política de Cookies | LSCF Development Hub',
+  description: 'Política de uso de cookies para el portafolio personal.',
 };
 
-const CookieConsentBanner = () => {
-    const {
-        isBannerVisible,
-        isModalVisible,
-        analyticsChecked,
-        setAnalyticsChecked,
-        acceptAll,
-        showModal,
-        hideModal,
-        savePreferences,
-    } = useCookieConsent();
+const CookiePolicyPage = () => {
+  // Definición de colores principales usados consistentemente con el tema general
+  const primaryColor = 'text-indigo-600 dark:text-indigo-400';
+  const containerBg = 'bg-white dark:bg-gray-800';
+  const sectionBg = 'bg-gray-100 dark:bg-gray-700';
+  const textColor = 'text-gray-700 dark:text-gray-300';
+  const titleColor = 'text-gray-900 dark:text-white';
+  const lastUpdated = "27 de noviembre de 2025";
 
-    // Clases de Tailwind ajustadas para un estilo más integrado (menos agresivo)
-    const bannerClasses = `fixed bottom-0 left-0 right-0 z-[100] bg-gray-900 text-white p-4 shadow-2xl transition-transform duration-500 ${
-        isBannerVisible ? 'translate-y-0' : 'translate-y-full'
-    }`;
-    // Nota: Mantenemos el color oscuro para que no choque con el resto del contenido y sea visible en cualquier fondo.
+  return (
+    // Usa un contenedor flexbox para asegurar que el contenido se centre vertical y horizontalmente
+    <div className={`min-h-screen flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8 ${containerBg}`}>
+      <div className={`max-w-4xl w-full p-8 sm:p-10 rounded-xl shadow-2xl transition-colors duration-300 ${sectionBg}`}>
+        
+        <Link href="/" className={`inline-flex items-center ${primaryColor} mb-6 hover:underline`}>
+            {/* Icono de flecha SVG simple */}
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Volver al Inicio
+        </Link>
+        
+        <h1 className={`text-4xl font-extrabold mb-4 ${titleColor}`}>Política de Cookies</h1>
+        <p className={`text-sm ${textColor} mb-8`}>
+          Última actualización: {lastUpdated}
+        </p>
 
-    const modalClasses = `fixed inset-0 z-[110] bg-black/50 flex items-center justify-center transition-opacity duration-300 ${
-        isModalVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-    }`;
-    
-    if (!isBannerVisible && !isModalVisible) return null;
+        {/* --- 1. INTRODUCCIÓN --- */}
+        <section className="mb-8">
+          <h2 className={`text-2xl font-bold mb-3 ${titleColor}`}>1. Introducción y Definición</h2>
+          <p className={`mb-4 ${textColor}`}>
+            Esta Política de Cookies explica qué son las cookies y cómo las utilizamos en el sitio web de LSCF. Las cookies son pequeños archivos de texto que se almacenan en su navegador cuando visita nuestro sitio web. Tienen la función de recordar información sobre su visita para mejorar su experiencia futura.
+          </p>
+          <p className={textColor}>
+            Al utilizar este sitio web, usted acepta el uso de cookies de acuerdo con esta política. Si no está de acuerdo, le rogamos que desactive las cookies siguiendo las instrucciones a continuación, o que no utilice el sitio.
+          </p>
+        </section>
 
-    return (
-        <>
-            {/* BANNER PRINCIPAL DE COOKIES - Fila simple, fondo oscuro sutil */}
-            <div className={bannerClasses} role="alert" aria-live="polite">
-                <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p className="text-sm text-gray-200">
-                        Utilizamos cookies propias y de terceros para mejorar la navegación y analizar el tráfico. Al continuar, acepta su uso. Lea nuestra{' '}
-                        <Link href="/politica-cookies" className="font-semibold underline text-purple-400 hover:text-white transition-colors">
-                            Política de Cookies
-                        </Link>
-                        .
-                    </p>
-                    <div className="flex flex-shrink-0 space-x-3">
-                        <button onClick={acceptAll} className="px-5 py-2 text-sm font-semibold rounded-lg text-white bg-purple-600 hover:bg-purple-700 transition duration-200 shadow-md">
-                            Aceptar Todo
-                        </button>
-                        <button onClick={showModal} className="px-5 py-2 text-sm font-semibold rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition duration-200 shadow-md">
-                            Configurar
-                        </button>
-                    </div>
-                </div>
-            </div>
+        {/* --- 2. TIPOS DE COOKIES UTILIZADAS --- */}
+        <section className="mb-8">
+          <h2 className={`text-2xl font-bold mb-3 ${titleColor}`}>2. ¿Qué tipos de cookies utilizamos?</h2>
+          
+          <h3 className={`text-xl font-semibold mt-4 mb-2 ${titleColor}`}>2.1. Cookies Estrictamente Necesarias (Técnicas)</h3>
+          <p className={`mb-2 ${textColor}`}>
+            Estas cookies son esenciales para el funcionamiento básico del sitio y no se pueden desactivar en nuestros sistemas. Generalmente se configuran para responder a acciones realizadas por usted, como ajustar sus preferencias de privacidad o iniciar sesión.
+          </p>
+          <ul className={`list-disc list-inside ml-5 ${textColor}`}>
+            <li>**Finalidad:** Garantizar la seguridad, la funcionalidad básica y recordar la preferencia de consentimiento de cookies.</li>
+            <li>**Ejemplo:** Cookie de consentimiento (`{CONSENT_KEY}`).</li>
+          </ul>
 
-            {/* MODAL DE CONFIGURACIÓN - Fondo oscuro, Modal centrado */}
-            <div className={modalClasses} onClick={(e) => e.target === e.currentTarget && hideModal()} aria-modal="true" role="dialog">
-                <div className="bg-gray-800 rounded-xl shadow-2xl max-w-lg w-full m-4 p-6 transform transition-transform duration-300 translate-y-0 border border-gray-700">
-                    <h3 className="text-xl font-bold mb-6 text-white border-b border-gray-700 pb-3">Ajustes de Cookies</h3>
-                    
-                    <div className="space-y-4">
-                        {/* Opción 1: Necesarias (Obligatorias) */}
-                        <div className="flex items-start justify-between">
-                            <div className="mr-4">
-                                <p className="font-semibold text-white">Cookies Estrictamente Necesarias</p>
-                                <p className="text-xs text-gray-400 mt-1">Esenciales para la funcionalidad básica del sitio (ej. recordar esta preferencia).</p>
-                            </div>
-                            <span className="text-xs font-semibold text-green-500 py-1 px-2 rounded-full bg-green-900/50 flex-shrink-0">Siempre Activas</span>
-                        </div>
-                        
-                        {/* Opción 2: Analítica y Rendimiento */}
-                        <div className="flex items-start justify-between pt-4 border-t border-gray-700">
-                            <div className="mr-4">
-                                <p className="font-semibold text-white">Cookies de Análisis y Rendimiento</p>
-                                <p className="text-xs text-gray-400 mt-1">Nos ayudan a entender cómo los visitantes usan el sitio para mejorarlo.</p>
-                            </div>
-                            {/* Toggle para la analítica */}
-                            <label htmlFor="analytics-toggle-main" className="relative inline-flex items-center cursor-pointer flex-shrink-0">
-                                <input 
-                                    type="checkbox" 
-                                    id="analytics-toggle-main" 
-                                    className="sr-only peer" 
-                                    checked={analyticsChecked}
-                                    onChange={(e) => setAnalyticsChecked(e.target.checked)}
-                                />
-                                {/* Diseño de interruptor más limpio */}
-                                <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-400 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                            </label>
-                        </div>
-                        
-                    </div>
+          <h3 className={`text-xl font-semibold mt-4 mb-2 ${titleColor}`}>2.2. Cookies de Rendimiento y Análisis (De terceros)</h3>
+          <p className={`mb-2 ${textColor}`}>
+            Estas cookies, administradas por terceros (como Google Analytics), nos permiten contar visitas y fuentes de tráfico para que podamos medir y mejorar el rendimiento de nuestro sitio. Nos ayudan a saber qué páginas son las más y menos populares y ver cómo se mueven los visitantes por el sitio.
+          </p>
+          <ul className={`list-disc list-inside ml-5 ${textColor}`}>
+            <li>**Finalidad:** Medir el tráfico web, optimizar la experiencia del usuario y evaluar el rendimiento del portafolio.</li>
+            <li>**Aceptación:** Solo se instalan si el usuario las acepta explícitamente a través del banner de consentimiento.</li>
+          </ul>
+        </section>
 
-                    <div className="flex justify-end mt-8 space-x-3">
-                        <button onClick={hideModal} className="px-5 py-2 text-sm font-semibold rounded-lg text-gray-300 bg-gray-700 hover:bg-gray-600 transition duration-200">
-                            Cerrar
-                        </button>
-                        <button onClick={savePreferences} className="px-5 py-2 text-sm font-semibold rounded-lg text-white bg-purple-600 hover:bg-purple-700 transition duration-200 shadow-md">
-                            Guardar Preferencias
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+        {/* --- 3. GESTIÓN DE COOKIES --- */}
+        <section className="mb-8">
+          <h2 className={`text-2xl font-bold mb-3 ${titleColor}`}>3. Gestión y Desactivación de Cookies</h2>
+          <p className={`mb-4 ${textColor}`}>
+            Usted tiene la opción de permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones de su navegador.
+          </p>
+          <p className={textColor}>
+            Puede configurar sus preferencias específicas utilizando el botón **"Configurar"** en el banner de consentimiento que aparece al acceder a nuestra web. Si desea eliminar cookies existentes, puede hacerlo directamente a través de las opciones de su navegador:
+          </p>
+          <ul className={`list-disc list-inside ml-5 mt-4 ${textColor}`}>
+            <li>**Chrome:** <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className={primaryColor}>Guía de Google Chrome</a></li>
+            <li>**Firefox:** <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we" target="_blank" rel="noopener noreferrer" className={primaryColor}>Guía de Mozilla Firefox</a></li>
+            <li>**Safari:** <a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className={primaryColor}>Guía de Apple Safari</a></li>
+            <li>**Edge:** <a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer" className={primaryColor}>Guía de Microsoft Edge</a></li>
+          </ul>
+        </section>
+
+        {/* --- 4. CONTACTO --- */}
+        <section>
+          <h2 className={`text-2xl font-bold mb-3 ${titleColor}`}>4. Contacto</h2>
+          <p className={textColor}>
+            Si tiene alguna pregunta sobre esta Política de Cookies, puede contactarnos a través del correo electrónico: <a href="mailto:contacto@lscfdevhub.com" className={primaryColor}>contacto@lscfdevhub.com</a>
+          </p>
+        </section>
+
+      </div>
+    </div>
+  );
 };
 
-export default CookieConsentBanner;
+export default CookiePolicyPage;
