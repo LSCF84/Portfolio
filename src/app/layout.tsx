@@ -3,8 +3,8 @@ import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
-// Importar el componente del banner de cookies
-import CookieConsentBanner from "@/components/core/CookieConsentBanner"; 
+// RUTA CORREGIDA: Apuntando a 'app/components/core/CookieConsentBanner'
+import CookieConsentBanner from "@/app/components/core/CookieConsentBanner"; 
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-geist-sans",
