@@ -3,6 +3,8 @@ import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
+// 1. IMPORTACIÓN CORRECTA
+import CookieConsentBanner from "@/components/core/CookieConsentBanner"; 
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-geist-sans",
@@ -25,6 +27,8 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer/>
+        {/* 2. COLOCACIÓN CORRECTA */}
+        <CookieConsentBanner /> 
       </body>
     </html>
   );
