@@ -1,4 +1,4 @@
-# 🌐 Portfolio Personal (Main)
+# 🌐 Portfolio Main
 
 > "Donde la pasión por el desarrollo se encuentra con la creatividad."
 
