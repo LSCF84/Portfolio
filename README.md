@@ -4,7 +4,7 @@
 
 Este repositorio alberga mi **Portfolio Personal**, una colección viva de mis proyectos, habilidades y experiencia profesional. Sirve como mi tarjeta de presentación digital, mostrando mi capacidad para desarrollar soluciones web y de software de principio a fin.
 
-![Captura de pantalla de la aplicación de Portfolio](https://central-lscf.vercel.app/imagenes/portfolio-main-lscf.vercel.app.png)
+![Captura de pantalla de la aplicación de Portfolio](https://central-lscf.vercel.app/imagenes/central-lscf.vercel.app.png)
 
 ---
 
