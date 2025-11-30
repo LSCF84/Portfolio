@@ -1,3 +1,5 @@
+<div align="center">
+
 # 🌐 Portfolio Main
 
 > "Donde la pasión por el desarrollo se encuentra con la creatividad."
@@ -5,7 +7,7 @@
 Este repositorio alberga mi **Portfolio Personal**, una colección viva de mis proyectos, habilidades y experiencia profesional. Sirve como mi tarjeta de presentación digital, mostrando mi capacidad para desarrollar soluciones web y de software de principio a fin.
 
 ![Captura de pantalla de la aplicación de Portfolio](https://portfolio-main-lscf.vercel.app/images/portfolio-main-lscf.vercel.app.png)
-
+</div>
 ---
 
 ## 🌟 Acerca de este Portfolio
